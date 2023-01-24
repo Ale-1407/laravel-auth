@@ -21,7 +21,7 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
-//gestisco rotte sotto autenticazione
+//gestione rotte sotto autenticazione
 Route::middleware('auth')
     ->namespace('Admin')
     ->prefix('admin')
@@ -30,6 +30,8 @@ Route::middleware('auth')
         Route::get('/', 'HomeController@index')->name('index');
     });
 
-//gestisco tutte le rotte che non usano autenticazione
-
+//gestione tutte le rotte che non usano autenticazione
+Route::get('{any?}', function(){
+    return view('guest.home');
+})->where("any", ".*");
 
