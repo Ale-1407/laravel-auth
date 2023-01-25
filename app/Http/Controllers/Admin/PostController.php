@@ -15,9 +15,9 @@ class PostController extends Controller
      */
     public function index()
     {
-        $data = Post::paginate(10);
+        $posts = Post::paginate(10);
 
-        return view('admin.posts.index', compact('data'));
+        return view('admin.posts.index', compact('posts'));
     }
 
     /**
@@ -49,7 +49,8 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        //
+        $singolo_post = Post::findOrFail($id);
+        return view('admin.posts.show', compact('singolo_post'));
     }
 
     /**

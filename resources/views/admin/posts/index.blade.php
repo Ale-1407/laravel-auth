@@ -11,11 +11,15 @@
           </tr>
         </thead>
         <tbody>
-           @foreach ($data as $elem)
+           @foreach ($posts as $post)
           <tr>
-            <td>{{$elem->id}}</td>
-            <td>{{$elem->title}}</td>
-            <td>{{$elem->body}}</td>
+            <td>{{$post->id}}</td>
+            <td>
+                <a href="{{route('admin.posts.show', $post->id)}}">
+                    {{$post->title}}
+                </a>
+            </td>
+            <td>{{$post->body}}</td>
             <td>icone</td>
           </tr>
           @endforeach
@@ -23,7 +27,7 @@
       </table>
 
       <div class="d-flex justify-content-center">
-        {{ $data->links() }}
+        {{ $posts->links() }}
       </div>
 
 
