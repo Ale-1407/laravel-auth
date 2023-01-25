@@ -1,7 +1,12 @@
 @extends('layouts.app')
 @section('content')
 
-    <table class="table">
+  <span class="pe-2">Crea nuovo Post</span>
+  <a href="{{route('admin.posts.create')}}">
+    <i class="fa-solid fa-square-plus fs-3 my-2 align-middle"></i>
+  </a>
+
+   <table class="table">
         <thead>
           <tr>
             <th scope="col">#id</th>
@@ -20,7 +25,14 @@
                 </a>
             </td>
             <td>{{$post->body}}</td>
-            <td>icone</td>
+            <td>
+                <a href="{{route('admin.posts.edit', $post->id)}}">
+                    <i class="fa-solid fa-pen"></i>
+                </a>
+                {{-- <a href="{{route('admin.posts.edit', $post->id)}}">
+                    <i class="fa-solid fa-trash"></i>
+                </a> --}}
+            </td>
           </tr>
           @endforeach
         </tbody>
