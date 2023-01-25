@@ -1,18 +1,18 @@
 <template>
     <div>
-        <WorkInProgress />
+        <WorkComp />
     </div>
 </template>
 
 
 <script>
+import WorkComp from '../components/WorkComp.vue';
 
-import WorkInProgress from '../components/WorkInProgress.vue';
 
 export default {
     name: 'App',
     components: {
-        WorkInProgress,
+        WorkComp
     }
 }
 </script>

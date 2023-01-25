@@ -28,6 +28,8 @@ Route::middleware('auth')
     ->name('admin.')
     ->group(function(){
         Route::get('/', 'HomeController@index')->name('index');
+        //controller CRUD nella sezione admin
+        Route::resource('/posts', PostController::class);
     });
 
 //gestione tutte le rotte che non usano autenticazione
