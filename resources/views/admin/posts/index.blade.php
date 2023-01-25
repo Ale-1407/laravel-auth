@@ -25,13 +25,18 @@
                 </a>
             </td>
             <td>{{$post->body}}</td>
-            <td>
+            <td class="">
                 <a href="{{route('admin.posts.edit', $post->id)}}">
-                    <i class="fa-solid fa-pen"></i>
+                    <i class="fa-solid fa-pen ps-3"></i>
                 </a>
-                {{-- <a href="{{route('admin.posts.edit', $post->id)}}">
-                    <i class="fa-solid fa-trash"></i>
-                </a> --}}
+
+                <form method="POST" action="{{route('admin.posts.destroy', $post->id)}}">
+                   @csrf
+                   @method('DELETE')
+                   <button type="submit" class="btn">
+                    <a href=""><i class="fa-solid fa-trash"></i></a>
+                   </button>
+                </form>
             </td>
           </tr>
           @endforeach

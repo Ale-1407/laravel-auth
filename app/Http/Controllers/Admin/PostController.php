@@ -87,11 +87,11 @@ class PostController extends Controller
     public function update(Request $request, $id)
     {
         $data = $request->all();
-        $singoloPost = Post::findOrFail($id);
+        $singolo_post = Post::findOrFail($id);
 
-        $singoloPost->update($data);
+        $singolo_post->update($data);
 
-        return redirect()->route('admin.posts.show', $singoloPost->id);
+        return redirect()->route('admin.posts.show', $singolo_post->id);
     }
 
     /**
@@ -102,6 +102,9 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $singolo_post = Post::findOrFail($id);
+        $singolo_post->delete();
+
+        return redirect()->route('admin.posts.index');
     }
 }
